@@ -1,12 +1,12 @@
 import { Request, Response } from "express";
-import { CreateAccountService } from "../services/CreateAccountService";
+import { CreateAccountService } from "../services/account/CreateAccountService";
 
 
 
 class CreateAccountController {
 
   async handleData(request: Request, response: Response): Promise<Response>{
-    const { CPF,fullName,email,password, agency, accountNum } = request.body
+    const { CPF,fullName,email,password, agency, accountNum, balance=0 } = request.body
 
     const createAccountService = new CreateAccountService
     
@@ -14,6 +14,7 @@ class CreateAccountController {
       CPF,
       agency,
       accountNum,
+      balance,
       fullName,
       email,
       password

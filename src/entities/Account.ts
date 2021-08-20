@@ -24,6 +24,9 @@ class Account {
 
   @Column()
   agency: string
+
+  @Column()
+  balance:number
   
   @CreateDateColumn()
   created_at: Date
