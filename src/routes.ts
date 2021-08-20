@@ -1,7 +1,7 @@
 import {Router} from 'express'
-import { CreateAccountController } from './controllers/CreateAccountController'
-import { DeleteAccountController } from './controllers/DeleteAccountController'
-import { UpdateAccountController } from './controllers/UpdateAccountController'
+import { CreateAccountController } from './controllers/account/CreateAccountController'
+import { DeleteAccountController } from './controllers/account/DeleteAccountController'
+import { UpdateAccountController } from './controllers/account/UpdateAccountController'
 
 const router = Router()
 
