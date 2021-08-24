@@ -3,7 +3,7 @@ import { CreateAuthService } from "../../services/auth/AuthService";
 
 class CreateAuthController {
 
-  async handleCreate(request: Request, response: Response): Promise<Response>{
+  async handleLogin(request: Request, response: Response): Promise<Response>{
     const { email,password } = request.body
 
     const createAuthService = new CreateAuthService

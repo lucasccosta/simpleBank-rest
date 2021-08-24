@@ -18,7 +18,7 @@ class CreateAccountController {
       password
     })
 
-    return response.json({message: "Personal account created successfully"})
+    return response.json({account, message: "Personal account created successfully" })
 
   }
 }

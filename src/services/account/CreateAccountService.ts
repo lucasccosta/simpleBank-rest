@@ -38,6 +38,10 @@ class CreateAccountService {
       throw new Error("Email already exists")
     }
 
+    if(cpfExists){
+      throw new Error("CPF already exists")
+    }
+
     const person = accountRepository.create({
       CPF,
       fullName,

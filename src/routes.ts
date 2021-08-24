@@ -20,17 +20,17 @@ const getAccountController = new GetAccountController()
 const getTransactionController = new GetTransactionController()
 const createAuthController = new CreateAuthController
 
-router.post('/account/auth', createAuthController.handleCreate)
-
+router.post('/account/login', createAuthController.handleLogin)
 
 router.post('/account/create', createAccountController.handleCreate)
-router.patch('/account/update', updateAccountController.handleUpdate)
-router.delete('/account/delete', deleteAccountController.handleDelete)
-
-router.post('/account/transaction', createTransactionController.handleTransaction)
-router.patch('/account/transfer', createTransferController.handleTransfer)
-
+router.patch('/account/update', authMiddleware, updateAccountController.handleUpdate)
+router.delete('/account/delete', authMiddleware, deleteAccountController.handleDelete)
+// Apenas admin
 router.get('/account/filter', authMiddleware ,getAccountController.handleFilter)
-router.get('/account/transaction', getTransactionController.handleFilterTransaction)
+
+router.get('/finance/history', authMiddleware ,getTransactionController.handleFilterTransaction)
+router.post('/finance/transaction', authMiddleware, createTransactionController.handleTransaction)
+router.patch('/finance/transfer', authMiddleware, createTransferController.handleTransfer)
+
 
 export { router}

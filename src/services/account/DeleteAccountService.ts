@@ -1,13 +1,14 @@
 import { DeleteResult, getCustomRepository } from "typeorm"
 import { AccountRepository } from "../../repositories/AccountRepository"
 
-
 class DeleteAccountService {
 
   async execute(CPF: string): Promise<DeleteResult>{
     const accountRepository = getCustomRepository(AccountRepository)
 
-    const cpfExists = await accountRepository.findOne(CPF)
+    const cpfExists = await accountRepository.findOne({CPF})
+
+    console.log(cpfExists)
 
     if(!cpfExists){
       throw new Error("Please, insert a valid CPF")
