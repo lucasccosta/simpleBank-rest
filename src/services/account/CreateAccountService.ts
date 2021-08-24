@@ -17,6 +17,27 @@ class CreateAccountService {
   async execute({CPF,fullName,email,password, agency, accountNum, balance}:IAccount): Promise<Account>{
     const accountRepository = getCustomRepository(AccountRepository)
 
+    const accountExists = await accountRepository.findOne({
+      accountNum,
+      agency
+    })
+
+    const cpfExists = await accountRepository.findOne({
+      CPF
+    })
+
+    const emailExists = await accountRepository.findOne({
+      email
+    })
+
+    if(accountExists){
+      throw new Error("Account already exists")
+    }
+
+    if(emailExists){
+      throw new Error("Email already exists")
+    }
+
     const person = accountRepository.create({
       CPF,
       fullName,

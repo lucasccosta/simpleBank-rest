@@ -1,8 +1,6 @@
 import { Request, Response } from "express";
 import { CreateAccountService } from "../../services/account/CreateAccountService";
 
-
-
 class CreateAccountController {
 
   async handleCreate(request: Request, response: Response): Promise<Response>{
