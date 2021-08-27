@@ -1,6 +1,6 @@
 import {MigrationInterface, QueryRunner, Table} from "typeorm";
 
-export class CreateAccount1629569692407 implements MigrationInterface {
+export class CreateAccount1630082593800 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         queryRunner.createTable(
@@ -31,7 +31,6 @@ export class CreateAccount1629569692407 implements MigrationInterface {
                     {
                         name: "agency",
                         type: "varchar",
-                        isUnique: true,
                     },
                     {
                         name: "accountNum",
@@ -41,7 +40,6 @@ export class CreateAccount1629569692407 implements MigrationInterface {
                     {
                         name: "password",
                         type: "varchar",
-                        isUnique: true,
                     },
                     {
                         name: "balance",
@@ -67,5 +65,4 @@ export class CreateAccount1629569692407 implements MigrationInterface {
     public async down(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.dropTable("account")
     }
-
 }

@@ -6,7 +6,7 @@ class CreateAccountController {
   async handleCreate(request: Request, response: Response): Promise<Response>{
     const { CPF,fullName,email,password, agency, accountNum, balance=0 } = request.body
 
-    const createAccountService = new CreateAccountService
+    const createAccountService = new CreateAccountService()
     
     const account = await createAccountService.execute({
       CPF,

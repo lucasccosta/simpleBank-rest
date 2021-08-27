@@ -1,3 +1,3 @@
-import { createConnection } from 'typeorm'
+import { conn } from './db'
 
-createConnection()
+conn()

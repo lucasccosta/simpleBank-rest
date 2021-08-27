@@ -1,9 +1,21 @@
 {
-  "type": "sqlite",
-  "database": "src/database/database.sqlite",
+  "type": "postgres",
+  "host": "localhost",
+  "port": 5432,
+  "username": "test-postgres",
+  "password": "test-postgres",
+  "database": "simpleBank",
+  "logging": false,
+  "synchronize": true,
+  "subscribers": [
+    "subscriber/*.js"
+  ],
+  "entitySchemas": [
+    "schema/*.json"
+  ],
   "migrations": ["src/database/migrations/*.ts"],
   "entities": ["src/entities/*.ts"],
-  "cli":{
+  "cli": {
     "migrationsDir": "src/database/migrations",
     "entitiesDir": "src/entities"
   }

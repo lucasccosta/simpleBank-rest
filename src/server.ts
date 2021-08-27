@@ -1,6 +1,10 @@
 
 import { app } from "./app";
 
-// const PORT = process.env.PORT;
+const PORT = 3001
+const server = app.listen(PORT, () => console.log(`Server is running on ${PORT}`));
 
-app.listen(3000, () => console.log('Server is running on PORT=3000'));
+process.on('SIGINT', ()=> {
+  server.close();
+  console.log('The app was finished successfully')
+})
